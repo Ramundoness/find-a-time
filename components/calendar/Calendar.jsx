@@ -22,12 +22,12 @@ class Calendar extends React.Component {
     calOnChange = (value) => {
         console.log(value);
         this.setState({ date: value })
+        this.props.changeDateSelected(value);
     }
 
     render() {
         return (
-            <div>
-                <Typography variant="h6"> Choose a meeting date or range of meeting dates! </Typography>
+            <div className="calendar">
                 <br />
                 <Cal
                     onChange={this.calOnChange}

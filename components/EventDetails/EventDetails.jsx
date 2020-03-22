@@ -46,7 +46,7 @@ class EventDetails extends React.Component {
     render() {
         return (
             <div>
-                <Typography>hiiiii</Typography>
+                <Typography>{this.props.eID}</Typography>
                 {/* {this.state.events} */}
             </div>
         );

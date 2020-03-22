@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  HashRouter, Route, Switch
+  HashRouter, Route, Switch, Link
 } from 'react-router-dom';
 import {
   Grid, Paper, Typography, TextField, Button
@@ -11,8 +11,8 @@ import './styles/main.css';
 // import necessary components
 import TopBar from './components/topBar/TopBar';
 import Event from './components/event/Event';
-import Calendar from './components/calendar/Calendar';
 import EventDetails from './components/EventDetails/EventDetails';
+import Home from './components/home/Home';
 
 class PhotoShare extends React.Component {
   constructor(props) {
@@ -35,35 +35,34 @@ class PhotoShare extends React.Component {
             </Grid>
             <div className="cs142-main-topbar-buffer" />
 
-            <Grid item sm={6}>
+            {/* <Grid item sm={6}>
               <Paper className="cs142-main-grid-item">
                 <Switch>
-
                   <Route path="/"
                     component={Calendar}
-
                   />
                 </Switch>
               </Paper>
-            </Grid>
-            <Grid item sm={6}>
-              <Paper className="cs142-main-grid-item">
+            </Grid> */}
+
+            <Grid item sm={12}>
+              <Paper className="home-page">
                 {/* <Route path="/event/:event_id"
                     component={EventDetails}
                   /> */}
                 <Switch>
-                  <Route path="/"
-                    render={props => <Event setEventID={this.setEventID} />}
-                  />
-
                   <Route path="/event/:event_id"
                     render={props => <EventDetails {...props} eID={this.state.eventID} />}
                   />
+                  <Route path="/newEvent"
+                    render={props => <Event {...props} setEventID={this.setEventID} />}
+                    />
+                  <Route path="/"
+                    component={Home}
+                  />
                 </Switch>
-
               </Paper>
             </Grid>
-
           </Grid>
         </div>
       </HashRouter>

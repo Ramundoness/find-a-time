@@ -34,13 +34,14 @@ app.get('/', function (request, response) {
 app.post('/newEvent/:event_id', function (request, response) {
     console.log(request.body);
     console.log(request.params.event_id);
+    console.log('date', request.body.event_date);
     Event.create({ 
         name: request.body.event_name, 
         participants: [], 
         location: request.body.event_loc, 
         note: request.body.event_note, 
         eventID: request.params.event_id,
-        date_time: Date.now()
+        date_time: request.body.event_date
     }, function (err, newEvent) {
         newEvent.save()
         response.status(200).send(newEvent);

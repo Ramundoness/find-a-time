@@ -17,3 +17,25 @@ cs142-main- here.
 .input-event {
   width: 400px;
 }
+
+.home-page {
+  height: calc(100vh - 150px);
+  width: calc(100vh - 100px);
+  /* height: 600px;
+  width: 800px; */
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.home-page-text {
+  text-align: center;
+  padding: 30px;
+}
+
+.create-event-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: 500;
+}

@@ -18,7 +18,7 @@ var eventSchema = new mongoose.Schema({
     location: String,
     note: String, default: "",
     eventID: String,
-    date_time: {type: Date, default: Date.now}
+    date_time: Date
 });
 
 // the schema is useless so far
