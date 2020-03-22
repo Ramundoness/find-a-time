@@ -1,0 +1,13 @@
+.cs142-topbar-appBar {
+  height: 60;
+  justify-content: 'center';
+}
+
+.cs142-topbar-context {
+  margin-left: auto;
+}
+
+.cs142-toolbar-versionNo {
+  margin-left: auto;
+  margin-right: auto;
+}
