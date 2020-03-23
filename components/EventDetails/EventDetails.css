@@ -1,0 +1,40 @@
+.event-details {
+    text-align: center;
+
+}
+
+.grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item {
+    background-color: red;
+    width: 40px;
+    border: 1px black solid;
+    height: 20px;
+
+}
+
+.label {
+    width: 40px;
+    height: 20px;
+    font-size: x-small;
+    border: 1px white solid;
+}
+
+.labels {
+    display: grid;
+    justify-content: center;
+    align-items: center;   
+    margin-top: -12px;
+}
+
+.grid-with-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}

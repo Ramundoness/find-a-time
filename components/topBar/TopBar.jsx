@@ -15,14 +15,6 @@ class TopBar extends React.Component {
     // this.state = ({ });
   }
 
-  componentDidUpdate(prevProps) {
-
-  }
-
-  componentDidMount() {
-    
-  }
-
   render() {
     return (
       <AppBar className="cs142-topbar-appBar" position="absolute">

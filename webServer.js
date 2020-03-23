@@ -50,8 +50,18 @@ app.post('/newEvent/:event_id', function (request, response) {
 });
 
 app.get('/event/:event_id', function (request, response) {
-    Event.find({}, function (err, events) {
-        response.status(200).send(JSON.parse(JSON.stringify(events)));
+    Event.find({ eventID: request.params.event_id}, function (err, event) {
+        response.status(200).send(JSON.parse(JSON.stringify(event)));
+        return;
+    });
+});
+
+app.get('/event/:event_id/user', function (request, response) {
+    var userObj = request.body.user_passed;
+    Event.find({ eventID: request.params.event_id}, function (err, event) {
+
+        event.permissions.push('hi')
+        response.status(200).send(JSON.parse(JSON.stringify(event)));
         return;
     });
 });

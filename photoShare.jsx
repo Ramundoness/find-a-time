@@ -51,6 +51,7 @@ class PhotoShare extends React.Component {
                     component={EventDetails}
                   /> */}
                 <Switch>
+                  {console.log('path', this.state.eventID)}
                   <Route path="/event/:event_id"
                     render={props => <EventDetails {...props} eID={this.state.eventID} />}
                   />

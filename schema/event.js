@@ -8,7 +8,8 @@ var mongoose = require('mongoose');
 
 var eventUserSchema = new mongoose.Schema({
     date_time: {type: Date, default: Date.now}, // The date and time when the comment was created.
-    dateTimeRanges: []
+    dateTimeRanges: [],
+    user_name: String
 });
 
 // create a schema
