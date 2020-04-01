@@ -36,5 +36,21 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 50px;
     
+}
+
+.event-placement-bars {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item-group {
+    background-color: white;
+    width: 40px;
+    border: 1px black solid;
+    height: 20px;
+
 }

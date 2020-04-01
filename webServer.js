@@ -56,6 +56,45 @@ app.get('/event/:event_id', function (request, response) {
     });
 });
 
+app.post('/event/:event_id', function (request, response) {
+    console.log('vals', request.body.availabilities, request.body.user_passed, request.params.event_id)
+    if (request.body.availabilities && request.body.user_passed) {
+        Event.findOne({ eventID: request.params.event_id}, function (err, event) {
+            console.log('the event', event);
+            // var existingParticipants = event.participants ? event.participants : [];
+            var existingParticipants = event.participants;
+            console.log('the existing are ', existingParticipants);
+            for (var i = 0; i < existingParticipants.length; i++) {
+                if (existingParticipants[i].user_name === request.body.user_passed) {
+                    existingParticipants[i].dateTimeRanges = request.body.availabilities;
+                    event.participants = existingParticipants;
+                    event.save();
+                    response.status(200).send(JSON.parse(JSON.stringify(event)));
+                    return;
+                }
+            }
+            // async.each(existingParticipants, function (participant, calllback_participant) {
+            //     if (participant.user_name === request.body.user_passed) {
+
+            //     }
+            //     calllback_participant();
+            // }, function (err) {
+            //     if (err) {
+            //         console.log('Unable to find particpant with error: ', err);
+            //         response.status(400).send(JSON.stringify(err));
+            //         return;
+            //     }
+
+            
+            existingParticipants.push({date_time: new Date(), dateTimeRanges: request.body.availabilities, user_name: request.body.user_passed});
+            event.participants = existingParticipants;
+            event.save();
+            response.status(200).send(JSON.parse(JSON.stringify(event)));
+            return;
+        });
+    }
+});
+
 app.get('/event/:event_id/user', function (request, response) {
     var userObj = request.body.user_passed;
     Event.find({ eventID: request.params.event_id}, function (err, event) {
@@ -65,7 +104,6 @@ app.get('/event/:event_id/user', function (request, response) {
         return;
     });
 });
-
 
 var server = app.listen(3000, function () {
     var port = server.address().port;

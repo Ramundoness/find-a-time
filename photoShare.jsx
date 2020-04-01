@@ -44,7 +44,7 @@ class PhotoShare extends React.Component {
                 </Switch>
               </Paper>
             </Grid> */}
-
+            
             <Grid item sm={12}>
               <Paper className="home-page">
                 {/* <Route path="/event/:event_id"
